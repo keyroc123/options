@@ -19,8 +19,8 @@ let cachedData = {
 async function performAutomatedScrape() {
     console.log(`[${new Date().toISOString()}] Automated background scrape started...`);
     
-    const url1 = "https://optioncharts.io";
-    const url2 = "https://optioncharts.io";
+    const url1 = "https://optioncharts.io/options/SPY/option-chain?option_type=put&expiration_dates=2026-06-23:w&view=list&strike_range=all";
+    const url2 = "https://optioncharts.io/options/SPY/option-chain?option_type=call&expiration_dates=2026-06-23:w&view=list&strike_range=all";
 
     try {
         const [response1, response2] = await Promise.all([
