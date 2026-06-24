@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Streaming Financial Dashboard</title>
+    <style>
+        body { font-family: sans-serif; margin: 30px; background-color: #f4f6f9; color: #333; }
+        .container { max-width: 1400px; margin: 0 auto; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .header-flex { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 20px; }
+        h1 { margin: 0; color: #1e293b; }
+        .meta-status { text-align: right; font-size: 14px; color: #64748b; }
+        .badge { background: #e2e8f0; padding: 4px 8px; border-radius: 4px; font-weight: bold; color: #334155; }
+        .tables-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .table-box { background: #fff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 15px; max-height: 600px; overflow-y: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th, td { border: 1px solid #e2e8f0; padding: 8px; text-align: left; }
+        th { background: #f8fafc; font-weight: bold; position: sticky; top: 0; z-index: 10; }
+        .error-alert { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; padding: 10px; border-radius: 4px; margin-bottom: 15px; display: none; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header-flex">
+        <div>
+            <h1>Real-Time SPY Option Chain Streamer</h1>
+            <div id="error-box" class="error-alert"></div>
+        </div>
+        <div class="meta-status">
+            <div>Data Status: <span id="sync-status" class="badge">Connecting...</span></div>
+            <div style="margin-top: 5px;">UI Refreshing In: <span id="countdown" style="font-weight:bold; color:#2563eb;">--</span>s</div>
+        </div>
+    </div>
+
+    <div class="tables-wrapper">
+        <div class="table-box">
+            <h3 style="color:#dc2626; margin-top:0;">SPY Puts Dataset</h3>
+            <table id="puts-table"><thead><tr id="puts-th"></tr></thead><tbody id="puts-tbody"></tbody></table>
+        </div>
+        
+        <div class="table-box">
+            <h3 style="color:#16a34a; margin-top:0;">SPY Calls Dataset</h3>
+            <table id="calls-table"><thead><tr id="calls-th"></tr></thead><tbody id="calls-tbody"></tbody></table>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
